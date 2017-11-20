@@ -1,0 +1,27 @@
+Chat: 
+<br>
+<span id="chat"></span>
+<hr>
+Message:
+<br>
+<textarea id="msg" style="width:380px; height: 80px;"></textarea>
+<hr>
+<button id="send">Send Message</button>
+
+<script>
+	$(document).ready(function(){
+
+		/* RECEIVE MESSAGE */
+		App.chat.received = function(data)
+		{
+			$("#chat").append(data['message']+"<br>")
+		}
+		
+		$("#send").click(function(){
+			msg = $("#msg").val()
+			
+			/* SEND MESSAGE */
+			App.chat.send_msg(msg)
+		})
+	})
+</script>
